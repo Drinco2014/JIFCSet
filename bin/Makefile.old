@@ -1,0 +1,243 @@
+SRCDIR=../src/
+CC = gcc -g 
+TARGET = PosePlotF LoadRobo PosePlotS RoboCnt RoboCntCP OutPutTh SaveRobo ReLoadRobo \
+PMove F_Kine GetPositions OutputSt Chgstruct OutLabel PrintJposi costest ResCalc ResCalc2 CalcP2P-3d\
+LoadPath  OutPutPath OutPutTraceNext ReLoadPath OutPutTaskPoints RoboCntEx1000 \
+RoboCntEx100 RoboCntEx10 RoboCntEx5000 MultiDist Inherit RoboCntEx10000 OutPutThFkine CheckLink ChangeLink CheckAll MakeAdj CheckAdj
+LIB= -lm -g
+
+all:    $(TARGET)
+
+CalcP2P-3d:$(SRCDIR)CalcP2P-3d.c
+	$(CC) $^ -o $@ $(LIB)
+
+ResCalc2:$(SRCDIR)ResCalc2.c
+	$(CC) $^ -o $@ $(LIB)
+
+ResCalc:$(SRCDIR)ResCalc.c
+	$(CC) $^ -o $@ $(LIB)
+
+costest: $(SRCDIR)costest.o $(SRCDIR)HSlib.o
+	$(CC) $^ -o $@ $(LIB)
+
+costest.o:$(SRCDIR)costest.c
+	$(CC) -c $^ -o $@
+
+
+MultiDist: $(SRCDIR)MultiDist.o $(SRCDIR)HSlib.o $(SRCDIR)spaceLib.o 
+	$(CC) $^ -o $@ $(LIB)
+
+PrintJposi: $(SRCDIR)PrintJposi.o $(SRCDIR)spaceLib.o $(SRCDIR)HSlib.o
+	$(CC) $^ -o $@ $(LIB)
+
+OutLabel: $(SRCDIR)OutLabel.o $(SRCDIR)spaceLib.o $(SRCDIR)HSlib.o
+	$(CC) $^ -o $@ $(LIB)
+
+Chgstruct: $(SRCDIR)Chgstruct.o $(SRCDIR)spaceLib.o $(SRCDIR)HSlib.o
+	$(CC) $^ -o $@ $(LIB)
+
+OutputSt: $(SRCDIR)OutputSt.o $(SRCDIR)spaceLib.o $(SRCDIR)HSlib.o
+	$(CC) $^ -o $@ $(LIB)
+
+GetPositions: $(SRCDIR)GetPositions.o $(SRCDIR)spaceLib.o $(SRCDIR)HSlib.o
+	$(CC) $^ -o $@ $(LIB)
+
+F_Kine: $(SRCDIR)F_Kine.o $(SRCDIR)spaceLib.o $(SRCDIR)HSlib.o
+	$(CC) $^ -o $@ $(LIB)
+
+PMove: $(SRCDIR)PMove.o $(SRCDIR)spaceLib.o $(SRCDIR)HSlib.o
+	$(CC) $^ -o $@ $(LIB)
+
+ReLoadRobo: $(SRCDIR)ReLoadRobo.o $(SRCDIR)spaceLib.o $(SRCDIR)HSlib.o
+	$(CC) $^ -o $@ $(LIB)
+
+Inherit: $(SRCDIR)Inherit.o $(SRCDIR)spaceLib.o $(SRCDIR)HSlib.o
+	$(CC) $^ -o $@ $(LIB)
+
+SaveRobo: $(SRCDIR)SaveRobo.o $(SRCDIR)spaceLib.o $(SRCDIR)HSlib.o
+	$(CC) $^ -o $@ $(LIB)
+
+OutPutTh: $(SRCDIR)OutPutTh.o $(SRCDIR)spaceLib.o $(SRCDIR)HSlib.o
+	$(CC) $^ -o $@ $(LIB)
+
+OutPutThFkine: $(SRCDIR)OutPutThFkine.o $(SRCDIR)spaceLib.o $(SRCDIR)HSlib.o
+	$(CC) $^ -o $@ $(LIB)
+
+RoboCnt: $(SRCDIR)RoboCnt.o $(SRCDIR)spaceLib.o $(SRCDIR)HSlib.o
+	$(CC) $^ -o $@ $(LIB)
+
+RoboCntCP: $(SRCDIR)RoboCntCP.o $(SRCDIR)spaceLib.o $(SRCDIR)HSlib.o
+	$(CC) $^ -o $@ $(LIB)
+
+RoboCntEx1000: $(SRCDIR)RoboCntEx1000.o $(SRCDIR)spaceLib.o $(SRCDIR)HSlib.o
+	$(CC) $^ -o $@ $(LIB)
+
+RoboCntEx100: $(SRCDIR)RoboCntEx100.o $(SRCDIR)spaceLib.o $(SRCDIR)HSlib.o
+	$(CC) $^ -o $@ $(LIB)
+
+RoboCntEx10: $(SRCDIR)RoboCntEx10.o $(SRCDIR)spaceLib.o $(SRCDIR)HSlib.o
+	$(CC) $^ -o $@ $(LIB)
+
+RoboCntEx5000: $(SRCDIR)RoboCntEx5000.o $(SRCDIR)spaceLib.o $(SRCDIR)HSlib.o
+	$(CC) $^ -o $@ $(LIB)
+
+RoboCntEx10000: $(SRCDIR)RoboCntEx10000.o $(SRCDIR)spaceLib.o $(SRCDIR)HSlib.o
+	$(CC) $^ -o $@ $(LIB)
+
+LoadPath: $(SRCDIR)LoadPath.o $(SRCDIR)spaceLib.o $(SRCDIR)HSlib.o
+	$(CC) $^ -o $@ $(LIB)
+
+ReLoadPath: $(SRCDIR)ReLoadPath.o $(SRCDIR)spaceLib.o $(SRCDIR)HSlib.o
+	$(CC) $^ -o $@ $(LIB)
+
+OutPutPath: $(SRCDIR)OutPutPath.o $(SRCDIR)spaceLib.o $(SRCDIR)HSlib.o
+	$(CC) $^ -o $@ $(LIB)
+
+OutPutTraceNext: $(SRCDIR)OutPutTraceNext.o $(SRCDIR)spaceLib.o $(SRCDIR)HSlib.o
+	$(CC) $^ -o $@ $(LIB)
+
+OutPutTaskPoints: $(SRCDIR)OutPutTaskPoints.o $(SRCDIR)spaceLib.o $(SRCDIR)HSlib.o
+	$(CC) $^ -o $@ $(LIB)
+
+PosePlotS: $(SRCDIR)PosePlotS.o $(SRCDIR)spaceLib.o $(SRCDIR)HSlib.o
+	$(CC) $^ -o $@ $(LIB)
+
+PosePlotF: $(SRCDIR)PosePlot.o $(SRCDIR)HSlib.o
+	$(CC) $^ -o $@ $(LIB)
+
+LoadRobo: $(SRCDIR)LoadRobo.o $(SRCDIR)HSlib.o  $(SRCDIR)spaceLib.o
+	$(CC) $^ -o $@ $(LIB)
+
+
+
+CheckLink: $(SRCDIR)CheckLink.o $(SRCDIR)spaceLib.o $(SRCDIR)HSlib.o
+	$(CC) $^ -o $@ $(LIB)
+	
+CheckAll: $(SRCDIR)CheckAll.o $(SRCDIR)spaceLib.o $(SRCDIR)HSlib.o
+	$(CC) $^ -o $@ $(LIB)
+
+ChangeLink: $(SRCDIR)ChangeLink.o $(SRCDIR)spaceLib.o $(SRCDIR)HSlib.o
+	$(CC) $^ -o $@ $(LIB)
+	
+MakeAdj: $(SRCDIR)MakeAdj.o $(SRCDIR)spaceLib.o $(SRCDIR)HSlib.o
+	$(CC) $^ -o $@ $(LIB)
+	
+CheckAdj: $(SRCDIR)CheckAdj.o $(SRCDIR)spaceLib.o $(SRCDIR)HSlib.o
+	$(CC) $^ -o $@ $(LIB)
+
+
+$(SRCDIR)PosePlot.o: $(SRCDIR)PosePlot.c
+	$(CC) -c $^ -o $@
+
+$(SRCDIR)PosePlotS.o: $(SRCDIR)PosePlotS.c
+	$(CC) -c $^ -o $@
+
+
+
+$(SRCDIR)HSlib.o: $(SRCDIR)HSlib.c
+	$(CC) -c $^ -o $@
+	
+$(SRCDIR)MultiDist.o: $(SRCDIR)MultiDist.c
+	$(CC) -c $^ -o $@
+	
+$(SRCDIR)spaceLib.o: $(SRCDIR)spaceLib.c
+	$(CC) -c $^ -o $@
+	
+$(SRCDIR)LoadRobo.o: $(SRCDIR)LoadRobo.c
+	$(CC) -c $^ -o $@
+	
+$(SRCDIR)RoboCnt.o: $(SRCDIR)RoboCnt.c
+	$(CC) -c $^ -o $@
+	
+$(SRCDIR)RoboCntCP.o: $(SRCDIR)RoboCnt.c
+	$(CC) -c $^ -o $@ -DCNVPRO
+	
+$(SRCDIR)RoboCntEx1000.o: $(SRCDIR)RoboCnt.c
+	$(CC) -c $^ -o $@  -DT1000 -DROOPNUM=1000
+	
+$(SRCDIR)RoboCntEx100.o: $(SRCDIR)RoboCnt.c
+	$(CC) -c $^ -o $@ -DCNVPRO -DT1000 -DROOPNUM=100
+	
+$(SRCDIR)RoboCntEx10.o: $(SRCDIR)RoboCnt.c
+	$(CC) -c $^ -o $@ -DCNVPRO -DT1000 -DROOPNUM=10
+	
+$(SRCDIR)RoboCntEx5000.o: $(SRCDIR)RoboCnt.c
+	$(CC) -c $^ -o $@ -DCNVPRO -DT1000 -DROOPNUM=5000
+	
+$(SRCDIR)RoboCntEx10000.o: $(SRCDIR)RoboCnt.c
+	$(CC) -c $^ -o $@ -DCNVPRO -DT1000 -DROOPNUM=10000
+	
+$(SRCDIR)LoadPath.o: $(SRCDIR)LoadPath.c
+	$(CC) -c $^ -o $@
+	
+$(SRCDIR)ReLoadPath.o: $(SRCDIR)ReLoadPath.c
+	$(CC) -c $^ -o $@
+	
+$(SRCDIR)OutPutPath.o: $(SRCDIR)OutPutPath.c
+	$(CC) -c $^ -o $@
+	
+$(SRCDIR)OutPutTraceNext.o: $(SRCDIR)OutPutTraceNext.c
+	$(CC) -c $^ -o $@
+	
+$(SRCDIR)OutPutTaskPoints.o: $(SRCDIR)OutPutTaskPoints.c
+	$(CC) -c $^ -o $@
+	
+$(SRCDIR)OutPutTh.o: $(SRCDIR)OutPutTh.c
+	$(CC) -c $^ -o $@
+	
+$(SRCDIR)OutPutThFkine.o: $(SRCDIR)OutPutThFkine.c
+	$(CC) -c $^ -o $@
+	
+$(SRCDIR)SaveRobo.o: $(SRCDIR)SaveRobo.c
+	$(CC) -c $^ -o $@
+	
+$(SRCDIR)ReLoadRobo.o: $(SRCDIR)ReLoadRobo.c
+	$(CC) -c $^ -o $@
+	
+$(SRCDIR)Inherit.o: $(SRCDIR)Inherit.c
+	$(CC) -c $^ -o $@
+	
+$(SRCDIR)PMove.o: $(SRCDIR)PMove.c
+	$(CC) -c $^ -o $@
+	
+$(SRCDIR)F_Kine.o: $(SRCDIR)F_Kine.c
+	$(CC) -c $^ -o $@
+	
+$(SRCDIR)GetPositions.o: $(SRCDIR)GetPositions.c
+	$(CC) -c $^ -o $@
+	
+$(SRCDIR)OutputSt.o: $(SRCDIR)OutputSt.c
+	$(CC) -c $^ -o $@
+	
+$(SRCDIR)Chgstruct.o: $(SRCDIR)Chgstruct.c
+	$(CC) -c $^ -o $@
+	
+$(SRCDIR)OutLabel.o: $(SRCDIR)OutLabel.c
+	$(CC) -c $^ -o $@
+
+$(SRCDIR)PrintJposi.o: $(SRCDIR)PrintJposi.c
+	$(CC) -c $^ -o $@
+
+$(SRCDIR)CheckLink.o: $(SRCDIR)CheckLink.c
+	$(CC) -c $^ -o $@
+	
+$(SRCDIR)ChangeLink.o: $(SRCDIR)ChangeLink.c
+	$(CC) -c $^ -o $@
+	
+$(SRCDIR)CheckAll.o: $(SRCDIR)CheckAll.c
+	$(CC) -c $^ -o $@
+	
+$(SRCDIR)MakeAdj.o: $(SRCDIR)MakeAdj.c
+	$(CC) -c $^ -o $@
+	
+$(SRCDIR)CheckAdj.o: $(SRCDIR)CheckAdj.c
+	$(CC) -c $^ -o $@
+
+
+clean:
+	rm  $(SRCDIR)*.o
+	rm $(TARGET)
+	
+install:
+	cp $(TARGET) /usr/local/bin/.
+
