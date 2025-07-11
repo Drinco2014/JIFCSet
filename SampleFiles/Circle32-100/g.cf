@@ -1,0 +1,42 @@
+reset
+set nokey                 # 凡例の非表示
+set xlabel "X"
+set ylabel "Y"
+#set zlabel "Z"
+set size square 
+set ticslevel 0
+set size ratio 1
+#set xrange [-25:25]       # x軸方向の範囲の設定
+#set yrange [-5:45]       # y軸方向の範囲の設定
+#set zrange [-200:500]       # y軸方向の範囲の設定
+
+plot [-750:750][-300:1200] "All.txt" u 1:2 w l, "CL3-100.txt" every ::1 w lp
+set term pngcairo 
+set output "pAAll.png"
+replot
+
+
+set size nosquare 
+
+# 座標系の指定
+set ytics nomirror # 第一y軸の目盛は左側のみにする
+set y2tics         # 第二y軸を描画することを指定
+set grid           # 目盛線を描画することを指定
+set xlabel "No. of Targets"  # x軸の見出しを指定
+set ylabel "Distance for Targets"           # 第一y軸の見出しを指定
+set y2label "Repeated times" # 第二y軸の見出しを指定
+# 凡例
+set key top left   # 凡例は左上に描画
+set ylabel "Distance for Target"
+#set key top right
+set offsets 0,0,10,10
+set output "dist-times.png"
+# データ描画
+plot 'Result.txt' u 1 with lp title "Distance", \
+     'Result.txt' u 4 with lp title "Repeated Times" axes x1y2
+     #  "axes x1y2"を指定することでデータファイルＢの目盛は第一x軸と第二y軸にとることを指定
+
+
+set output "Angles.png"
+plot  "Theta.txt" using 1 w linespoints  title "Joint No.1", "Theta.txt" using 2 w linespoints  title "Joint No.2", "Theta.txt" using 3 w linespoints  title "Joint No.3"
+

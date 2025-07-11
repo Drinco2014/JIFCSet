@@ -1,0 +1,49 @@
+
+set term pngcairo
+set output "Angles.png"
+plot  [0:6][-180:180]"Theta.dat" using 1 w lp lt 7 pt 6 title "J0", \
+	"Theta.dat" using 2 w lp lt 4 pt 8 title "J1", \
+	"Theta.dat" using 4 w lp lt 3 pt 9 title "J3", \
+	"Theta.dat" using 5 w lp lt 2 pt 1 title "J4", \
+	"Theta.dat" using 6 w lp lt 1 pt 2 title "J5" , \
+	"Theta.dat" using 7 w lp lt 1 pt 2 title "J6" , \
+	"Theta.dat" using 8 w lp lt 1 pt 2 title "J7" , \
+	"Theta.dat" using 10 w lp lt 1 pt 2 title "J9" ,\
+	"Theta.dat" using 11 w lp lt 1 pt 2 title "J10" 
+	
+	
+set output "Dis.png"
+plot  [0:6][-10:20]"Theta.dat" using 3 w lp lt 7 pt 6 title "J2"
+	
+
+set output "Error.png"
+#set yrange [0:0.01]
+plot "Jtip.dat" w lp title "TipR", "J2nd.dat" w lp title "TipL"
+
+set size ratio 1
+set ticslevel 0
+set size square
+set xrange [-30:15]    # x軸方向の範囲の設定
+set yrange [-15:30]     # y軸方向の範囲の設定
+set zrange [0:45]       # z軸方向の範囲の設定
+
+set output "AllPoses.png"
+splot "All.txt" w lp,"MARU.dat" w l,"TP.dat" w p
+
+set output "AllXY.png"
+plot "All.txt" u 1:2 w lp, "MARU.dat" u 1:2 w l,"TP.dat" u 1:2 w p
+
+set ylabel "Z"
+set yrange [0:45]
+set output "AllZX.png"
+plot "All.txt" u 1:3 w lp, "MARU.dat" u 1:3 w l,"TP.dat" u 1:3 w p
+
+set xlabel "Y"
+set ylabel "Z"
+set yrange [0:45]
+set xrange [-15:30]
+set output "AllYZ.png"
+plot "All.txt" u 2:3 w lp, "MARU.dat" u 2:3 w l,"TP.dat" u 2:3 w p
+
+
+
